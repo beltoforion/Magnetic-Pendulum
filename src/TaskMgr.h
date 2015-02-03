@@ -9,20 +9,20 @@
 class TaskMgr
 {
 public:
-  TaskMgr();
- ~TaskMgr();
+    TaskMgr();
+    ~TaskMgr();
 
-  void Reset(int nLines);
-  int GetNextLine(int &nLineIdx);
-  int GetNumLinesDone() const;
-  void FlagAsCalculated(int nLine);
-  bool IsDone() const;
-  void SaveState(const std::string &sFile) const;
-  void RestoreState(const std::string &sFile);
+    void Reset(int nLines);
+    int GetNextLine(int &nLineIdx);
+    int GetNumLinesDone() const;
+    void FlagAsCalculated(int nLine);
+    bool IsDone() const;
+    void SaveState(const std::wstring &sFile) const;
+    void RestoreState(const std::wstring &sFile);
 
 private:
-  int m_nNextIdx;     ///< Total number of lines
-  std::vector<int> m_vLinesToCalc;  
+    int m_nNextIdx;     ///< Total number of lines
+    std::vector<int> m_vLinesToCalc;
 };
 
 #endif

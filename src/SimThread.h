@@ -31,19 +31,18 @@ public:
     virtual void HandleMouseClick(int x, int y); 
     virtual void HandleMouseMove(int x, int y); 
     virtual void Finalize();
-    virtual void SetPath(const std::string &sName);
-    virtual void SetName(const std::string &sName);
-    virtual const std::string& GetName() const;
-    virtual const std::string& GetPath() const;
+    virtual void SetPath(const std::wstring &sName);
+    virtual void SetName(const std::wstring &sName);
+    virtual const std::wstring& GetName() const;
+    virtual const std::wstring& GetPath() const;
     const SimImpl* GetSim() const;
     static UINT ThreadMain(LPVOID lpParam);
 
 private:
     const std::auto_ptr<SimImpl> m_pSim;
-    std::string m_sPath;
-    std::string m_sName;
+    std::wstring m_sPath;
+    std::wstring m_sName;
     std::vector<HANDLE> m_vThreadTable;
-//    std::vector<CWinThread*> m_vThreads;
     HANDLE m_hCloseEvent;
 
     CWndOpenGL *m_pWnd;

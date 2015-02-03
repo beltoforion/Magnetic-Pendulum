@@ -35,7 +35,7 @@ namespace su
 
   //--------------------------------------------------------------------------
   template<typename TStr>
-  TStr trim(const TStr &a_str, const TStr &a_chars = TStr(" ") )
+  TStr trim(const TStr &a_str, const TStr &a_chars = TStr(_T(" ")) )
   {
     return (a_str.empty()) ? a_str : trim_right(trim_left(a_str, a_chars), a_chars);
   }

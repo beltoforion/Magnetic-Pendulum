@@ -19,35 +19,36 @@ namespace au
       eIGNORE_CASE
     };
 
-    IniFile(const std::string &sFile = std::string());
+    IniFile(const std::wstring &sFile = std::wstring());
    ~IniFile();
     IniFile(const IniFile &ref);
 
-    const std::string& GetAsString(const std::string &sSection, const std::string &sKey) const;
-    int GetAsInt(const std::string &sSection, const std::string &sKey) const;
-    int GetAsInt(const std::string &sSection, const std::string &sKey, int nDefault) const;
-    double GetAsFloat( const std::string &sSection, 
-                       const std::string &sKey ) const;
-    double GetAsFloat( const std::string &sSection, 
-                       const std::string &sKey, 
+    const std::wstring& GetAsString(const std::wstring &sSection, const std::wstring &sKey) const;
+    int GetAsInt(const std::wstring &sSection, const std::wstring &sKey) const;
+    int GetAsInt(const std::wstring &sSection, const std::wstring &sKey, int nDefault) const;
+    double GetAsFloat( const std::wstring &sSection, 
+                       const std::wstring &sKey ) const;
+    double GetAsFloat( const std::wstring &sSection, 
+                       const std::wstring &sKey, 
                        double fDefault ) const;
+
 #ifdef INI_FILE_PARSE_EXPR
-    double GetAsFloatFromExpr( const std::string &sSection, 
-                               const std::string &sKey ) const;
-    double GetAsFloatFromExpr( const std::string &sSection, 
-                               const std::string &sKey,
-                               double fDefault) const;
+    double GetAsFloatFromExpr(const std::wstring &sSection, 
+                              const std::wstring &sKey ) const;
+    double GetAsFloatFromExpr(const std::wstring &sSection, 
+                              const std::wstring &sKey,
+                              double fDefault) const;
 #endif
 
-    void Load(const std::string &sFile, EFlag eFlag = eNONE);
+    void Load(const std::wstring &sFile, EFlag eFlag = eNONE);
     void Reset();
-    bool HasSection(const std::string &sSection) const;
-    bool HasKey(const std::string &sSection, const std::string &sKey) const;
-    bool HasKey(const std::string &sSection, const char *szKey) const;
+    bool HasSection(const std::wstring &sSection) const;
+    bool HasKey(const std::wstring &sSection, const std::wstring &sKey) const;
+    bool HasKey(const std::wstring &sSection, const wchar_t *szKey) const;
 
   private:
-    typedef std::map<std::string, std::string> section_type;
-    typedef std::map<std::string, section_type> memfile_type;
+    typedef std::map<std::wstring, std::wstring> section_type;
+    typedef std::map<std::wstring, section_type> memfile_type;
     memfile_type m_MemFile;
   };
 }  // end of namespace

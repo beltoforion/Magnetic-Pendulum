@@ -27,7 +27,7 @@ public:
     EType type;
   };
 
-  static ISource* CreateSource(const std::string &sType, const ISource::SData &src);
+  static ISource* CreateSource(const std::wstring &sType, const ISource::SData &src);
   virtual ~ISource();
 
   virtual inline void QueryForce(mu::vec2d_type &force, const mu::vec2d_type &pos, double dist) const = 0;
