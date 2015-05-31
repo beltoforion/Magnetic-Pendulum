@@ -6,4 +6,4 @@ program.
 
 For details please visit the project website:
 
-http://articles.beltoforion.de/article.php?a=agnetic_pendulum
+http://articles.beltoforion.de/article.php?a=magnetic_pendulum
