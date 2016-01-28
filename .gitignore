@@ -6,8 +6,8 @@
 *.pdb
 *.idb
 *.ipch
+*.pch
 *.opensdf
 *.suo
 *.sdf
-*.sdf
-*.sdf
+*.restore
