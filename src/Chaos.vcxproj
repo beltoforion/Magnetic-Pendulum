@@ -18,13 +18,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -63,7 +63,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_DEPRECATE;INI_FILE_PARSE_EXPR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MUPARSER_STATIC;WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_DEPRECATE;INI_FILE_PARSE_EXPR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;INI_FILE_PARSE_EXPR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MUPARSER_STATIC;WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_DEPRECATE;INI_FILE_PARSE_EXPR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>true</BufferSecurityCheck>
@@ -126,6 +126,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="muparser\muParser.cpp" />
+    <ClCompile Include="muparser\muParserBase.cpp" />
+    <ClCompile Include="muparser\muParserBytecode.cpp" />
+    <ClCompile Include="muparser\muParserCallback.cpp" />
+    <ClCompile Include="muparser\muParserError.cpp" />
+    <ClCompile Include="muparser\muParserInt.cpp" />
+    <ClCompile Include="muparser\muParserTokenReader.cpp" />
     <ClCompile Include="SimApp.cpp" />
     <ClCompile Include="SimPend.cpp" />
     <ClCompile Include="SimThread.cpp" />
@@ -141,6 +148,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="muparser\muParser.h" />
+    <ClInclude Include="muparser\muParserBase.h" />
+    <ClInclude Include="muparser\muParserBytecode.h" />
+    <ClInclude Include="muparser\muParserCallback.h" />
+    <ClInclude Include="muparser\muParserDef.h" />
+    <ClInclude Include="muparser\muParserError.h" />
+    <ClInclude Include="muparser\muParserFixes.h" />
+    <ClInclude Include="muparser\muParserInt.h" />
+    <ClInclude Include="muparser\muParserTemplateMagic.h" />
+    <ClInclude Include="muparser\muParserToken.h" />
+    <ClInclude Include="muparser\muParserTokenReader.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SimApp.h" />
     <ClInclude Include="SimPend.h" />
@@ -148,7 +166,6 @@
     <ClInclude Include="Source.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TaskMgr.h" />
-    <ClInclude Include="utils\muParserDLL.h" />
     <ClInclude Include="utils\utMemory.h" />
     <ClInclude Include="utils\utWideExceptions.h" />
     <ClInclude Include="WndOpenGL.h" />
@@ -165,11 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SimPend.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="muparser32.dll">
-      <DeploymentContent>false</DeploymentContent>
-    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

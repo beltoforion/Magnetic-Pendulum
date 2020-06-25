@@ -13,7 +13,7 @@
 #include "suStringTokens.h"
 #include "suUtility.h"
 #include "utWideExceptions.h"
-#include "muParserDLL.h"
+#include "../muparser/muParser.h"
 
 
 namespace au
@@ -127,17 +127,10 @@ namespace au
     {
         std::wstring sExpr(GetAsString(sSection, sKey));
 
-        muParserHandle_t hParser(mupCreate(muBASETYPE_FLOAT));
+        auto parser = mu::Parser();
 
-        mupSetExpr(hParser, sExpr.c_str());
-        double fRet = mupEval(hParser);
-
-        if (mupError(hParser))
-        {
-            throw utils::wruntime_error(mupGetErrorMsg(hParser));
-        }
-
-        mupRelease(hParser);
+        parser.SetExpr(sExpr.c_str());
+        double fRet = parser.Eval();
 
         return fRet;
     }

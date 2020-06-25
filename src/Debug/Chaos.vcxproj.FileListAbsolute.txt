@@ -1,0 +1,2 @@
+C:\Users\user\Documents\GitHub\Magnetic-Pendulum\src\Debug\SimPend.exe
+C:\Users\user\Documents\GitHub\Magnetic-Pendulum\src\Debug\SimPend.pdb

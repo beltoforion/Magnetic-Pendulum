@@ -11,3 +11,6 @@
 *.suo
 *.sdf
 *.restore
+src/.vs/*
+bin/*
+bin/triangle.bmp

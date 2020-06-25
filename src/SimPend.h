@@ -9,7 +9,7 @@
 #include "utils/muGeneric.h"
 #include "utils/muVector.h"
 #include "utils/muBlockMatrix.h"
-#include "utils/muParserDLL.h"
+#include "muparser/muParser.h"
 #include "Source.h"
 #include "TaskMgr.h"
 
@@ -88,7 +88,7 @@ private:
     bool m_bColorNormalize;
 
     TaskMgr m_LineMgr;              ///< A class managing the line distribution among the threads.
-    muParserHandle_t m_hParser;        ///< Function parser for the color scaling functions
+    mu::Parser m_parser;            ///< Function parser for the color scaling functions
     source_buf_type m_vpSrc;        ///< Sources following columbs law
     int_field_type   m_IdxField;    ///< Result field for magnet indices
     float_field_type m_LenField;    ///< Result field for trace lengths

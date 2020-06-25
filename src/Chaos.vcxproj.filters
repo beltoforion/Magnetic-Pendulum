@@ -19,6 +19,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
+    <Filter Include="Quelldateien\muparser">
+      <UniqueIdentifier>{a1bfd6bc-5805-42d0-b904-428892ca9fc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\muparser">
+      <UniqueIdentifier>{b0a0ad1a-186b-47fb-8121-528f830f49aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimApp.cpp">
@@ -44,6 +50,27 @@
     </ClCompile>
     <ClCompile Include="utils\utWideExceptions.cpp">
       <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserBase.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserBytecode.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserCallback.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserError.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserInt.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParserTokenReader.cpp">
+      <Filter>Quelldateien\muparser</Filter>
+    </ClCompile>
+    <ClCompile Include="muparser\muParser.cpp">
+      <Filter>Quelldateien\muparser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,8 +125,38 @@
     <ClInclude Include="utils\utMemory.h">
       <Filter>Headerdateien\utils</Filter>
     </ClInclude>
-    <ClInclude Include="utils\muParserDLL.h">
-      <Filter>Headerdateien\utils</Filter>
+    <ClInclude Include="muparser\muParserCallback.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserDef.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserError.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserFixes.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserInt.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserTemplateMagic.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserToken.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserTokenReader.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParser.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserBase.h">
+      <Filter>Headerdateien\muparser</Filter>
+    </ClInclude>
+    <ClInclude Include="muparser\muParserBytecode.h">
+      <Filter>Headerdateien\muparser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -111,10 +168,5 @@
     <ResourceCompile Include="SimPend.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="muparser32.dll">
-      <Filter>Ressourcendateien</Filter>
-    </None>
   </ItemGroup>
 </Project>

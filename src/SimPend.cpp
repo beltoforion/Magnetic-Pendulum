@@ -17,16 +17,13 @@
 #include "utils/auThreads.h"
 #include "utils/utMemory.h"
 #include "utils/utWideExceptions.h"
-#include "utils/muParserDLL.h"
 
 //--- My includes ---------------------------------------------------------------------------
 #include "WndOpenGL.h"
 
-//-------------------------------------------------------------------------------------------
-// undefines stupid Microsoft macros
 #if defined(min) || defined(max)
-#undef min
-#undef max
+    #undef min
+    #undef max
 #endif
 
 
@@ -63,21 +60,15 @@ SimImpl::SimImpl(CWndOpenGL *pWnd, const au::IniFile &iniFile)
 , m_LenField()
 , m_bColorNormalize(true)
 , m_LineMgr()
-, m_hParser(NULL)
+, m_parser()
 {
     assert(m_pWnd);
-    m_hParser = mupCreate(muBASETYPE_FLOAT);
 
-    const wchar_t *szVer = mupGetVersion(m_hParser);
+     auto version = m_parser.GetVersion();
 
     // bin muParser variables
-    mupDefineVar(m_hParser, _T("len"), (double*)&m_fTraceLenBuf);
-    mupDefineVar(m_hParser, _T("max_len"), &m_fMaxTraceLen);
-
-    if (mupError(m_hParser))
-    {
-        throw utils::wruntime_error(mupGetErrorMsg(m_hParser));
-    }
+    m_parser.DefineVar(_T("len"), (double*)&m_fTraceLenBuf);
+    m_parser.DefineVar(_T("max_len"), &m_fMaxTraceLen);
 
     InitFromFile(iniFile);
 }
@@ -85,7 +76,6 @@ SimImpl::SimImpl(CWndOpenGL *pWnd, const au::IniFile &iniFile)
 //-------------------------------------------------------------------------------------------
 SimImpl::~SimImpl()
 {
-    mupRelease(m_hParser);
     utils::clear_cont_of_ptr(m_vpSrc);
 }
 
@@ -190,7 +180,7 @@ void SimImpl::InitFromFile(const au::IniFile &iniFile)
     }
     else
     {
-        mupSetExpr(m_hParser, sExpr.c_str());
+        m_parser.SetExpr(sExpr);
     }
 
 
@@ -329,7 +319,7 @@ void SimImpl::CreateBitmap(const std::wstring &sFile)
 
             // calculate the scalig
             m_fTraceLenBuf = m_LenField[y][x];
-            double scale(mupEval(m_hParser));
+            double scale(m_parser.Eval());
             rgbData[y * m_nCols + x] = RGB(scale * pSrc->GetBlue(),
                 scale * pSrc->GetGreen(),
                 scale * pSrc->GetRed());
@@ -448,13 +438,7 @@ void SimImpl::DrawSingleLine(int y) const
 
             // Use the color scheme expression submitted in the ini file
             const ISource *pSrc(GetMagnet(nMag));
-            double scale(mupEval(m_hParser));
-            if (mupError(m_hParser))
-            {
-                std::wstringstream ss;
-                ss << _T("[SIMULATION]/COLOR_SCHEME expression error:\n") << mupGetErrorMsg(m_hParser);
-                throw utils::wruntime_error(ss.str().c_str());
-            }
+            double scale(m_parser.Eval());
 
             m_pWnd->PutPixel(x,
                 y,
