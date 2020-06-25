@@ -14,3 +14,4 @@
 src/.vs/*
 bin/*
 bin/triangle.bmp
+src/Release/SimPend.exe
