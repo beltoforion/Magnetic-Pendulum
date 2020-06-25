@@ -11,30 +11,28 @@
 
 namespace mu
 {
-    /** \brief PI as a double precision constant. */
     const double PI = 3.14159265358979323846;
 
-    /** \brief Degree to radion conversion factor. */
     const double DEG2RAD = PI / 180.0f;
 
-    //-------------------------------------------------------------------------------------------
-    /** \brief Square root. */
     template<typename TVal>
     inline TVal sqr(const TVal &val)
     {
         return val * val;
     }
 
-    //-------------------------------------------------------------------------------------------
-    /** \brief Cubic root. */
     template<typename TVal>
     inline TVal qubic(const TVal &val)
     {
         return val * val * val;
     }
 
-    //-------------------------------------------------------------------------------------------
-    /** \brief Round to next integer. */
+    template<typename TVal>
+    inline TVal pow4(const TVal& val)
+    {
+        return val * val * val * val;
+    }
+
     template<typename TVal>
     inline int round(const TVal &val)
     {

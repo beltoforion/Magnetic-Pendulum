@@ -16,32 +16,36 @@
 //
 //-------------------------------------------------------------------------------------------
 
-ISource* ISource::CreateSource(const std::wstring &sType, const ISource::SData &src)
+ISource* ISource::CreateSource(const std::wstring& sType, const ISource::SData& src)
 {
-    if (sType == _T("LINEAR"))
-    {
-        return new SourceLin(src);
-    }
-    else if (sType == _T("INV"))
-    {
-        return new SourceInv(src);
-    }
-    else if (sType == _T("INV_SQR"))
-    {
-        return new SourceInvSqr(src);
-    }
-    else
-    {
-        std::wstringstream msg;
-        msg << _T("Invalid source type identifier: \"") << sType << _T("\n");
-        msg << _T("Valid values are \"LINEAR\" or \"INV\" or \"INV_SQUARE\".");
-        throw utils::wruntime_error(msg.str());
-    }
+	if (sType == _T("LINEAR"))
+	{
+		return new SourceLin(src);
+	}
+	else if (sType == _T("INV"))
+	{
+		return new SourceInv(src);
+	}
+	else if (sType == _T("INV_SQR"))
+	{
+		return new SourceInvSqr(src);
+	}
+	else if (sType == _T("INV_QRT"))
+	{
+		return new SourceInvQrt(src);
+	}
+	else
+	{
+		std::wstringstream msg;
+		msg << _T("Invalid source type identifier: \"") << sType << _T("\n");
+		msg << _T("Valid values are \"LINEAR\" or \"INV\" or \"INV_SQUARE\".");
+		throw utils::wruntime_error(msg.str());
+	}
 }
 
 //-------------------------------------------------------------------------------------------
-ISource::ISource(const ISource::SData &src)
-:m_src(src)
+ISource::ISource(const ISource::SData& src)
+	:m_src(src)
 {}
 
 //-------------------------------------------------------------------------------------------
@@ -56,23 +60,50 @@ ISource::~ISource()
 //
 //-------------------------------------------------------------------------------------------
 
-SourceInvSqr::SourceInvSqr(const ISource::SData &src)
-:ISource(src)
+SourceInvSqr::SourceInvSqr(const ISource::SData& src)
+	:ISource(src)
 {
-    m_src.type = tpINV_SQR;
+	m_src.type = tpINV_SQR;
 }
 
 //-------------------------------------------------------------------------------------------
-void SourceInvSqr::QueryForce(mu::vec2d_type &force, const mu::vec2d_type &r, double dist) const
+void SourceInvSqr::QueryForce(mu::vec2d_type& force, const mu::vec2d_type& r, double dist) const
 {
-    force[0] = (m_src.mult / mu::qubic(dist)) * r[0];
-    force[1] = (m_src.mult / mu::qubic(dist)) * r[1];
+	force[0] = (m_src.mult / mu::qubic(dist)) * r[0];
+	force[1] = (m_src.mult / mu::qubic(dist)) * r[1];
 }
 
 //-------------------------------------------------------------------------------------------
 double SourceInvSqr::GetPotential(double dist) const
 {
-    return m_src.mult / dist;  // ok
+	return m_src.mult / dist;  // ok
+}
+
+//-------------------------------------------------------------------------------------------
+//
+//
+// Sources with F ~ 1/d³
+//
+//
+//-------------------------------------------------------------------------------------------
+
+SourceInvQrt::SourceInvQrt(const ISource::SData& src)
+	:ISource(src)
+{
+	m_src.type = tpINV_QRT;
+}
+
+//-------------------------------------------------------------------------------------------
+void SourceInvQrt::QueryForce(mu::vec2d_type& force, const mu::vec2d_type& r, double dist) const
+{
+	force[0] = (m_src.mult / mu::pow4(dist)) * r[0];
+	force[1] = (m_src.mult / mu::pow4(dist)) * r[1];
+}
+
+//-------------------------------------------------------------------------------------------
+double SourceInvQrt::GetPotential(double dist) const
+{
+	return m_src.mult / dist;  // ok
 }
 
 //-------------------------------------------------------------------------------------------
@@ -83,33 +114,33 @@ double SourceInvSqr::GetPotential(double dist) const
 //
 //-------------------------------------------------------------------------------------------
 
-SourceInv::SourceInv(const ISource::SData &src)
-:ISource(src)
+SourceInv::SourceInv(const ISource::SData& src)
+	:ISource(src)
 {
-    m_src.type = tpINV;
+	m_src.type = tpINV;
 }
 
 //-------------------------------------------------------------------------------------------
-void SourceInv::QueryForce(mu::vec2d_type &force, const mu::vec2d_type &r, double dist) const
+void SourceInv::QueryForce(mu::vec2d_type& force, const mu::vec2d_type& r, double dist) const
 {
-    //----------------------------------------------------------
-    // Calculate magnet Forces:
-    //                _
-    //      _         r
-    //  m * a = k * -----
-    //               |r²|
-    //
-    // Calculate distance pendulum to magnet i, The simulation is somewhat 3D
-    // with the 3rd dimension introduced by the m_fHeight which is the height
-    // of the pendulum plane above the magnet plane.
-    force[0] = (m_src.mult / mu::sqr(dist)) * r[0];
-    force[1] = (m_src.mult / mu::sqr(dist)) * r[1];
+	//----------------------------------------------------------
+	// Calculate magnet Forces:
+	//                _
+	//      _         r
+	//  m * a = k * -----
+	//               |r²|
+	//
+	// Calculate distance pendulum to magnet i, The simulation is somewhat 3D
+	// with the 3rd dimension introduced by the m_fHeight which is the height
+	// of the pendulum plane above the magnet plane.
+	force[0] = (m_src.mult / mu::sqr(dist)) * r[0];
+	force[1] = (m_src.mult / mu::sqr(dist)) * r[1];
 }
 
 //-------------------------------------------------------------------------------------------
 double SourceInv::GetPotential(double dist) const
 {
-    return m_src.mult * std::log(dist);   // ok
+	return m_src.mult * std::log(dist);   // ok
 }
 
 //-------------------------------------------------------------------------------------------
@@ -120,35 +151,35 @@ double SourceInv::GetPotential(double dist) const
 //
 //-------------------------------------------------------------------------------------------
 
-SourceLin::SourceLin(const ISource::SData &src)
-:ISource(src)
+SourceLin::SourceLin(const ISource::SData& src)
+	:ISource(src)
 {
-    m_src.type = tpLIN;
+	m_src.type = tpLIN;
 }
 
 //-------------------------------------------------------------------------------------------
-void SourceLin::QueryForce(mu::vec2d_type &force, const mu::vec2d_type &r, double /*dist*/) const
+void SourceLin::QueryForce(mu::vec2d_type& force, const mu::vec2d_type& r, double /*dist*/) const
 {
-    //----------------------------------------------------------
-    // Calculate spring like sources (simulate pendulum)
-    //                          _
-    //         _                r         _   
-    //     m * a = - k * |r| * --- = -k * r
-    //                         |r|
-    //  _  
-    //  a  - Acceleration of the pendulum
-    //  k  - elestic constant
-    //  m  - Pendulum Mass (equals one here)
-    //  _
-    //  r  - Vector from Mountpoint to Pendulum mass 
-    // |r| - distance Pendulum to Mountpoint
-    force[0] = m_src.mult * r[0];
-    force[1] = m_src.mult * r[1];  // ok
+	//----------------------------------------------------------
+	// Calculate spring like sources (simulate pendulum)
+	//                          _
+	//         _                r         _   
+	//     m * a = - k * |r| * --- = -k * r
+	//                         |r|
+	//  _  
+	//  a  - Acceleration of the pendulum
+	//  k  - elestic constant
+	//  m  - Pendulum Mass (equals one here)
+	//  _
+	//  r  - Vector from Mountpoint to Pendulum mass 
+	// |r| - distance Pendulum to Mountpoint
+	force[0] = m_src.mult * r[0];
+	force[1] = m_src.mult * r[1];  // ok
 }
 
 //-------------------------------------------------------------------------------------------
 double SourceLin::GetPotential(double dist) const
 {
-    // spring potential:  U = 0.5 * k * x^2
-    return 0.5 * m_src.mult * mu::sqr(dist);  // ok
+	// spring potential:  U = 0.5 * k * x^2
+	return 0.5 * m_src.mult * mu::sqr(dist);  // ok
 }
