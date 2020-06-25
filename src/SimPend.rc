@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral (Default) resources
+// Neutral (Standard) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29,18 +27,17 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\SimPend.ico"
-#endif    // Neutral (Default) resources
+
+#endif    // Neutral (Standard) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -84,8 +81,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,1,0,1
- PRODUCTVERSION 1,1,0,1
+ FILEVERSION 1,3,0,0
+ PRODUCTVERSION 1,3,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -101,13 +98,13 @@ BEGIN
         BLOCK "040704e4"
         BEGIN
             VALUE "CompanyName", "Ingo Berg"
-            VALUE "Copyright (C) 2006", "(C) 2006 Ingo Berg"
+            VALUE "Copyright (C) 2006", "(C) 2020 Ingo Berg"
             VALUE "FileDescription", "Magnets and Pendulum Fractal"
-            VALUE "FileVersion", "1.1.0.0"
+            VALUE "FileVersion", "1.3.0.0"
             VALUE "InternalName", "SimPend.exe"
             VALUE "OriginalFilename", "SimPend.exe"
             VALUE "ProductName", "SimPend"
-            VALUE "ProductVersion", "1.1.0.1"
+            VALUE "ProductVersion", "1.3.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -116,7 +113,7 @@ BEGIN
     END
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>SimPend</ProjectName>
+    <ProjectName>Magnetic-Pendulum</ProjectName>
     <ProjectGuid>{B73EB74A-47F3-4948-A480-DCE1C50557C7}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
