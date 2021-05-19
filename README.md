@@ -18,6 +18,9 @@ For details please visit the project website:
 
 This software is open source and distrubuted under the BSD-2 License. 
 
-Images created by the software can also be used free of charge for commercial 
-and noncommercial use. As far as I am concerned the images are in the public 
-domain. 
+Any image created by the software can be used free of charge for commercial 
+and noncommercial use. Proper attribution is welcome. As far as I am concerned
+everything this program creates is in the public domain. You local law may
+see this differently if you use config files provided by someone else so
+if you find a config file not created by me ask the creator nicely. Everything
+that I created can be used royalty free.
