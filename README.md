@@ -24,6 +24,7 @@ everything this program creates is in the public domain.
 
 Please note that your local law may see this differently. If you come accross config files 
 or images created by a third party please ask the creator of said media. Everything that 
-I created can be used royalty free. Everything that is part of the archive provided here 
-or was made available by me on my web page or via personal communication was solely created by me 
-unless explicitely noted otherwise.
+I created which is related to the magnetic pendulum simulation can be used royalty free. 
+Every media related to the magnetic pendulum fractal which is part of the archive provided 
+here or was made available by me on my web page or via e-mail or cloud wstorage was solely 
+created by me unless explicitely noted otherwise.
