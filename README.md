@@ -13,3 +13,9 @@ For details please visit the project website:
 * http://beltoforion.de/de/magnetic_pendulum [german]
 
 ![titleimage](https://beltoforion.de/en/magnetic_pendulum/images/magpend.jpg)
+
+# License
+
+This software is distrubuted under the BSD-2 License. In summary you are free to use the source code and binaries and the 
+images created by it free of charge for commercial and noncommercial purposes as long as you provide attribution and do not 
+conceal the origin. 
