@@ -25,4 +25,5 @@ everything this program creates is in the public domain.
 Please note that your local law may see this differently. If you come accross config files 
 or images created by a third party please ask the creator of said media. Everything that 
 I created can be used royalty free. Everything that is part of the archive or was made 
-available by me on my web page was solely created by me unless noted otherwise.
+available by me on my web page or via personal cloud storage was solely created by me 
+unless explicitely noted otherwise.
