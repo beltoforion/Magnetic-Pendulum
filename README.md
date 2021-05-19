@@ -22,6 +22,7 @@ Any image created by the software can be used free of charge for commercial
 and noncommercial use. Proper attribution is welcome. As far as I am concerned
 everything this program creates is in the public domain. 
 
-Please note that your local law may see this differently if you use config files 
-or images created by a third party. So if you find a config file that was not created 
-by me ask the creator nicely. Everything that I created can be used royalty free.
+Please note that your local law may see this differently. If you come accross config files 
+or images created by a third party pleas ask its creator. Everything that I created can be 
+used royalty free. Everything that is part of the archive or was made available by me was solely 
+created by me.
