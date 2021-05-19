@@ -14,8 +14,10 @@ For details please visit the project website:
 
 ![titleimage](https://beltoforion.de/en/magnetic_pendulum/images/magpend.jpg)
 
-# License
+# License 
 
-This software is distrubuted under the BSD-2 License. In summary you are free to use the source code and binaries and the 
-images created by it free of charge for commercial and noncommercial purposes as long as you provide attribution and do not 
-conceal the origin. 
+This software is open source and distrubuted under the BSD-2 License. 
+
+Images created by the software can also be used free of charge for commercial 
+and noncommercial use. As far as I am concerned the images are in the public 
+domain. 
