@@ -12,7 +12,7 @@ For details please visit the project website:
 * http://beltoforion.de/en/magnetic_pendulum [english]
 * http://beltoforion.de/de/magnetic_pendulum [german]
 
-![titleimage](https://beltoforion.de/en/magnetic_pendulum/images/magpend.jpg)
+![titleimage](https://beltoforion.de/en/magnetic_pendulum/images/magpend.webp)
 
 # License 
 
