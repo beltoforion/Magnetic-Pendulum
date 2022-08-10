@@ -7,12 +7,12 @@ This project contains the source code of a Windows application to calculate the
 magnetic pendulum fractal. Visual Studio 2013 is required in order to compile the 
 program.
 
+![magpend](https://user-images.githubusercontent.com/2202567/183996839-1a2b775e-13d5-4d10-a583-e99e4a704eff.jpg)
+
 For details please visit the project website:
 
 * http://beltoforion.de/en/magnetic_pendulum [english]
 * http://beltoforion.de/de/magnetic_pendulum [german]
-
-![titleimage](https://beltoforion.de/en/magnetic_pendulum/images/magpend.webp)
 
 # License 
 
